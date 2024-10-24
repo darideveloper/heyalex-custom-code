@@ -1,0 +1,58 @@
+<style>
+	/* Page header */
+	main > section:last-child > div:last-child {
+		margin-bottom: -50px;
+	}
+
+	/* text drop shadow for home */
+	.logo.icon,
+	.main > section:last-child > div:last-child > div:last-child {
+		text-shadow: 1px 1px 1px #dfd7d7 !important;
+	}
+
+	/* Dari DEv STyles. Don't Edit it!*/
+
+	/* Logo intiial styles */
+	.logo.icon,
+	main > section:last-child > div:last-child > div:last-child {
+		top: 0px;
+	}
+
+	.logo.icon span,
+	main > section:last-child > div:last-child > div:last-child span {
+		letter-spacing: -10px;
+	}
+
+	.logo.text {
+		top: 0px !important;
+	}
+
+	/* Place logo and text in the top center of the screen */
+	.logo,
+	main > section:last-child > div:last-child > div:last-child {
+		position: fixed;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 10;
+		transition: all 0.3s;
+	}
+
+	/* Inicial: show text and hide logo */
+	.logo.text {
+		opacity: 1;
+	}
+
+	.logo.icon {
+		opacity: 0;
+	}
+
+	/* When scroll: show logo and hide text */
+	.logo.text.convert-svg {
+		opacity: 0;
+	}
+
+	.logo.icon.convert-svg {
+		opacity: 1;
+	}
+
+</style>

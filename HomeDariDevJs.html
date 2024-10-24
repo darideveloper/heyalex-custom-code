@@ -1,0 +1,54 @@
+<script>
+	// Selectors and elements
+	const h1Selector = '.logo.text'
+	const logoSelector = '.logo.icon'
+	const headerSelector = 'header'
+	const mainTextSelector = '#comp-m2jkh144_r_comp-m2ds81kl'
+	const refImageSelector = '#comp-m2jkgxsk_r_comp-m221dox5'
+
+	const h1Elem = document.querySelector(h1Selector)
+	const logoElem = document.querySelector(logoSelector)
+	const headerElem = document.querySelector(headerSelector)
+	const mainTextElem = document.querySelector(mainTextSelector)
+	const refImageElem = document.querySelector(refImageSelector)
+
+	console.log({ h1Elem, logoElem, headerElem, mainTextElem })
+
+	function changeLogo(useLogo) {
+		if (useLogo) {
+			h1Elem.classList.add("wixui-convert-svg")
+			logoElem.classList.add("wixui-convert-svg")
+		} else {
+			h1Elem.classList.remove("wixui-convert-svg")
+			logoElem.classList.remove("wixui-convert-svg")
+		}
+	}
+
+	// Add events listener when scroll
+	document.addEventListener('scroll', () => {
+		const headerHeight = headerElem.clientHeight
+		const mainTextHeight = mainTextElem.clientHeight
+		const scrollY = window.scrollY
+		console.log({ headerHeight, mainTextHeight, scrollY })
+
+		if (scrollY >= headerHeight + mainTextHeight - 15) {
+			changeLogo(true)
+		} else {
+			changeLogo(false)
+		}
+
+		const myDiv = refImageElem
+	
+		function getElementPositionInPage(element) {
+			const rect = element.getBoundingClientRect()
+			const scrollTop = window.scrollY || document.documentElement.scrollTop
+			return rect.top + scrollTop
+		}
+	
+		// Usage Example:
+		const positionY = getElementPositionInPage(myDiv)
+		console.log('Top position relative to the page:', positionY)
+		console.log('Left position relative to the page:', positionY);
+	})
+
+</script>
