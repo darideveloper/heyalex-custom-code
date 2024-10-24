@@ -26,29 +26,16 @@
 
 	// Add events listener when scroll
 	document.addEventListener('scroll', () => {
-		const headerHeight = headerElem.clientHeight
-		const mainTextHeight = mainTextElem.clientHeight
 		const scrollY = window.scrollY
-		console.log({ headerHeight, mainTextHeight, scrollY })
+		const refImageRect = refImageElem.getBoundingClientRect()
+		const refImageScrollPosition = refImageRect.top + scrollY
+		console.log({ scrollY, refImageScrollPosition })
 
-		if (scrollY >= headerHeight + mainTextHeight - 15) {
+		if (scrollY >= (refImageScrollPosition - refImageScrollPosition * 0.1)) {
 			changeLogo(true)
 		} else {
 			changeLogo(false)
 		}
-
-		const myDiv = refImageElem
-	
-		function getElementPositionInPage(element) {
-			const rect = element.getBoundingClientRect()
-			const scrollTop = window.scrollY || document.documentElement.scrollTop
-			return rect.top + scrollTop
-		}
-	
-		// Usage Example:
-		const positionY = getElementPositionInPage(myDiv)
-		console.log('Top position relative to the page:', positionY)
-		console.log('Left position relative to the page:', positionY);
 	})
 
 </script>
