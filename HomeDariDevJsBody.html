@@ -1,16 +1,16 @@
 <script>
 	// Selectors and elements
-	const h1Selector = '.logo.text'
-	const logoSelector = '.logo.icon'
-	const headerSelector = 'header'
-	const mainTextSelector = '#comp-m2jkh144_r_comp-m2ds81kl'
-	const refImageSelector = '#comp-m2jkgxsk_r_comp-m221dox5'
+	h1Selector = '.logo.text'
+	logoSelector = '.logo.icon'
+	headerSelector = 'header'
+	mainTextSelector = '#comp-m2jkh144_r_comp-m2ds81kl'
+	refImageSelector = '#comp-m2jkgxsk_r_comp-m221dox5'
 
-	const h1Elem = document.querySelector(h1Selector)
-	const logoElem = document.querySelector(logoSelector)
-	const headerElem = document.querySelector(headerSelector)
-	const mainTextElem = document.querySelector(mainTextSelector)
-	const refImageElem = document.querySelector(refImageSelector)
+	h1Elem = document.querySelector(h1Selector)
+	logoElem = document.querySelector(logoSelector)
+	headerElem = document.querySelector(headerSelector)
+	mainTextElem = document.querySelector(mainTextSelector)
+	refImageElem = document.querySelector(refImageSelector)
 
 	console.log({ h1Elem, logoElem, headerElem, mainTextElem })
 
@@ -26,16 +26,17 @@
 
 	// Add events listener when scroll
 	document.addEventListener('scroll', () => {
+		// get refImageScrollPosition
 		const scrollY = window.scrollY
 		const refImageRect = refImageElem.getBoundingClientRect()
 		const refImageScrollPosition = refImageRect.top + scrollY
-		console.log({ scrollY, refImageScrollPosition })
+		console.log({ scrollY, refImageScrollPosition, refImageElem })
 
+		// show logo when reach the refImageScrollPosition
 		if (scrollY >= (refImageScrollPosition - refImageScrollPosition * 0.1)) {
 			changeLogo(true)
 		} else {
 			changeLogo(false)
 		}
 	})
-
 </script>
